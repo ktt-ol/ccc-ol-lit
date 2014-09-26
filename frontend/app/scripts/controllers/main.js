@@ -23,7 +23,7 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
       if (angular.isArray(toCheck)) {
         return hasValue(toCheck[0]);
       }
-      return angular.isDefined(toCheck) && toCheck !== -1
+      return angular.isDefined(toCheck) && toCheck !== -1;
     }
 
     function upateUI(data) {
@@ -70,7 +70,7 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
       }
       if (data.browserHistory.length > $scope.deviceData.browserHistory.length) {
         $scope.deviceData.browserHistory.push(data.browserHistory[$scope.deviceData.browserHistory.length]);
-        $log.debug('update browerHistory (new urls)')
+        $log.debug('update browerHistory (new urls)');
         $scope.deviceData.progress.browserHistory = true;
       }
 
@@ -89,7 +89,7 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
         function err() {
           $scope.ui.error = 'Kaputt... :(';
         }
-      )
+      );
     }
 
     function random(count) {

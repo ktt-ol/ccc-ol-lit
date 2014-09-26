@@ -14,25 +14,25 @@ angular.module('litol2014DemoApp').service('Devicedataservice', function Deviced
     this.image = image;
   }
 
-  var t1 = {
-    machine: -1, // <int>, (Samsung, IPhone, Laptop, Smatphone) -> Gerätetyp
-    os: -1, // <int>, (iOS, Android, Windows, ...)
-    browser: [-1, -1], //: <int>, (FF, Chrome, ...)
-    browserHistory: [
-      'http://google.de'
-    ],
-    email: 'holger@foo.com' //<string>, (Adresse)
-  };
+//  var t1 = {
+//    machine: -1, // <int>, (Samsung, IPhone, Laptop, Smatphone) -> Gerätetyp
+//    os: -1, // <int>, (iOS, Android, Windows, ...)
+//    browser: [-1, -1], //: <int>, (FF, Chrome, ...)
+//    browserHistory: [
+//      'http://google.de'
+//    ],
+//    email: 'holger@foo.com' //<string>, (Adresse)
+//  };
 
   var t2 = {
-    "adMap": {
-      "entry": []
+    'adMap': {
+      'entry': []
     },
-    "browser": [2, 35],
-    "browserHistory": ["www.google.de", "www.spiegel.de", "www.googleadservices.com", "www.blogblog.com", "www.fireball.de", "www.test.de", "www.squid-handbuch.de", "www.nwzonline.de", "www.afup.a36.de", "www.eu.squid-cache.org", "www.squarefree.com", "www.squid-cache.org", "www.aliexpress.com", "www.google.com", "www.bknoop.de", "www.heise.de", "www.gstatic.com", "www.youtube.com", "www.blogger.com", "www.google-analytics.com", "www.linuxhomenetworking.com"],
-    "eMail": "",
-    "machine": 3,
-    "os": 2};
+    'browser': [2, 35],
+    'browserHistory': ['www.google.de', 'www.spiegel.de', 'www.googleadservices.com', 'www.blogblog.com', 'www.fireball.de', 'www.test.de', 'www.squid-handbuch.de', 'www.nwzonline.de', 'www.afup.a36.de', 'www.eu.squid-cache.org', 'www.squarefree.com', 'www.squid-cache.org', 'www.aliexpress.com', 'www.google.com', 'www.bknoop.de', 'www.heise.de', 'www.gstatic.com', 'www.youtube.com', 'www.blogger.com', 'www.google-analytics.com', 'www.linuxhomenetworking.com'],
+    'eMail': '',
+    'machine': 3,
+    'os': 2};
 
   window._staticTestData = t2;
 

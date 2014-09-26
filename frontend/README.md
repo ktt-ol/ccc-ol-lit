@@ -26,3 +26,5 @@ bower install
 grunt serve
 ```
 
+You will get problems because of the cross-origin-policy. To fix this start the google chrome browser with the ```--disable-web-security``` parameter. 
+

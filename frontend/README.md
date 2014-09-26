@@ -14,6 +14,7 @@ This is the fancy html/js frontend for the demo. The user can see a **very** bas
 (You can skip some steps if you have the tool already installed...)
 
 ```
+npm install -g grunt-cli
 npm install -g bower
 npm install
 bower install

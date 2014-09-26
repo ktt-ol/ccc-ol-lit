@@ -4,7 +4,12 @@ This is the fancy html/js frontend for the demo. The user can see a **very** bas
 
 # Setup
 
-Install ```npm```. After this run:  
+## Prerequisites
+
+* Install ```npm```. 
+* You need also a ```sass``` interpreter. http://sass-lang.com/   
+
+## Project setup
 
 (You can skip some steps if you have the tool already installed...)
 

@@ -1,0 +1,22 @@
+.animate-fade {
+
+  &.ng-enter,
+  &.ng-leave {
+  }
+
+  &.ng-enter {
+    transition-delay: 3.5s;
+    transition:1.5s ease-in all;
+    opacity: 0;
+  }
+  &.ng-enter.ng-enter-active {
+    opacity: 1;
+  }
+  &.ng-leave {
+    transition:1.5s ease-out all;
+  }
+  &.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
+
+}

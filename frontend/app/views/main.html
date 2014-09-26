@@ -1,0 +1,41 @@
+<div class="stage">
+    <div class="machine">
+        <div class="item animate-fade" ng-repeat="item in M.MACHINE" ng-if="deviceData.machine === $index" >
+            <img ng-src="images/{{item.image}}" title="{{item.name}}"/>
+        </div>
+        <div class="item animate-fade" ng-if="!deviceData.progress.machine">
+            <img src="images/blackBox.jpg" title="Black box" />
+        </div>
+    </div>
+
+    <div class="os">
+        <div class="item animate-fade" ng-repeat="item in M.OS" ng-if="deviceData.os === $index">
+            <img ng-src="images/{{item.image}}" title="{{item.name}}"/>
+        </div>
+    </div>
+
+    <div class="browser">
+        <div class="item animate-fade" ng-repeat="item in M.BROWSER" ng-if="deviceData.browser[0] === $index">
+            <img ng-src="images/{{item.image}}" title="{{item.name}}"/>
+        </div>
+    </div>
+</div>
+
+<div class="detailed-stage">
+    <ul class="history">
+       <li ng-repeat="item in deviceData.browserHistory" class="animate-fade">{{item}}</li>
+    </ul>
+
+</div>
+
+
+<div class="debug">
+    <button class="btn btn-default" ng-click="debug('machine', 'MACHINE')">Machine</button>
+    <button class="btn btn-default" ng-click="debug('os', 'OS')">OS</button>
+    <button class="btn btn-default" ng-click="debug('browser', 'BROWSER')">Browser</button>
+    <button class="btn btn-default" ng-click="debugHistory()">+ History</button>
+</div>
+<a ng-click="ui.showDebug = !ui.showDebug" class="btn-link">Toggle</a>
+<pre ng-if="ui.showDebug">
+    {{deviceData}}
+</pre>

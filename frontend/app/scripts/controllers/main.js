@@ -87,7 +87,7 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
           $timeout(updateData, WAITING);
         },
         function err() {
-          $scope.ui.error = 'Kaputt... :(';
+          $scope.ui.error = 'Keine Verbindung zum Server möglich. :(';
         }
       );
     }

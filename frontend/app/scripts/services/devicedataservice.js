@@ -7,7 +7,7 @@
  * # Devicedataservice
  * Service in the litol2014DemoApp.
  */
-angular.module('litol2014DemoApp').service('Devicedataservice', function Devicedataservice($q, $http) {
+angular.module('litol2014DemoApp').service('Devicedataservice', function Devicedataservice($log, $q, $http) {
 
   function V(name, image) {
     this.name = name;
@@ -37,8 +37,19 @@ angular.module('litol2014DemoApp').service('Devicedataservice', function Deviced
   window._staticTestData = t2;
 
   this.getData = function () {
-
+    // use static test data
     return $q.when(window._staticTestData);
+
+    var url = 'your server';
+    return $http.get(url).then(
+      function ok(response) {
+        return response.data;
+      },
+      function err(response) {
+        $log.error('Error from server: ', response);
+        return $q.reject('Error connecting to server.');
+      }
+    );
 
   };
 

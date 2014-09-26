@@ -1,3 +1,6 @@
+<div class="alert alert-danger" ng-if="ui.error">
+    {{ui.error}}
+</div>
 <div class="stage">
     <div class="machine">
         <div class="item animate-fade" ng-repeat="item in M.MACHINE" ng-if="deviceData.machine === $index" >

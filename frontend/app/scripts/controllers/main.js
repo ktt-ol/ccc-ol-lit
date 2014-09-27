@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the litol2014DemoApp
  */
-angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log, Devicedataservice, $timeout) {
+angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log, Devicedataservice, $timeout, $location, $anchorScroll) {
 
     /*
      CONFIG
@@ -18,6 +18,8 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
     /*
      private
      */
+
+    var ipAddress;
 
     function hasValue(toCheck) {
       if (angular.isArray(toCheck)) {
@@ -77,7 +79,7 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
     }
 
     function updateData() {
-      Devicedataservice.getData().then(
+      Devicedataservice.getData(ipAddress).then(
         function ok(data) {
           console.log('Update...', data);
 
@@ -102,8 +104,13 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
      */
 
     $scope.ui = {
-      showDebug: false,
+      running: false,
       error: null
+    };
+
+    $scope.form = {
+      ipPrefix: '192.168.84.',
+      ipSuffix: ''
     };
 
     $scope.M = Devicedataservice.MAPPING;
@@ -121,6 +128,22 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
      Scope functions
      */
 
+    $scope.updateIp = function () {
+      if (!angular.isNumber($scope.form.ipSuffix)) {
+        $log.error('no number! ', $scope.form.ipSuffix);
+        return;
+      }
+      ipAddress = $scope.form.ipPrefix + $scope.form.ipSuffix;
+      $log.info('requesting ip:', ipAddress);
+      $scope.ui.running = true;
+      $timeout(updateData, WAITING);
+
+      $location.hash('ip-input');
+      $anchorScroll();
+      // remove the ugly #ip-input from the url again
+      $location.hash('');
+    };
+
     $scope.debug = function (dataItem, mappingItem) {
       window._staticTestData[dataItem] = (window._staticTestData[dataItem] + 1) % Devicedataservice.MAPPING[mappingItem].length;
     };
@@ -131,10 +154,8 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
       );
     };
 
-    // init
-
-    $timeout(updateData, WAITING);
-
+    $scope.$on('onWindowSize', function (data) {
+      console.log('size', data);
+    });
   }
-)
-;
+);

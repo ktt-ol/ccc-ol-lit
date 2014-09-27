@@ -1,44 +1,56 @@
-<div class="alert alert-danger" ng-if="ui.error">
-    {{ui.error}}
-</div>
-<div class="stage">
-    <div class="machine">
-        <div class="item animate-fade" ng-repeat="item in M.MACHINE" ng-if="deviceData.machine === $index" >
-            <img ng-src="images/{{item.image}}" title="{{item.name}}"/>
+<div class="demo-content" apply-window-height>
+    <form class="ip-address" ng-submit="updateIp()" id="ip-input">
+        <div class="form-group form-inline">
+            <label for="ip">Ip address </label>
+
+            <div class="input-group">
+                <div class="input-group-addon">{{form.ipPrefix}}</div>
+                <input id="ip" class="form-control" type="number" min="1" max="255" required placeholder="xxx" ng-model="form.ipSuffix">
+            </div>
+            <button class="btn btn-primary">OK</button>
         </div>
-        <div class="item animate-fade" ng-if="!deviceData.progress.machine">
-            <img src="images/blackBox.jpg" title="Black box" />
+    </form>
+
+    <div class="alert alert-danger" ng-if="ui.error">
+        {{ui.error}}
+    </div>
+    <div class="stage">
+        <div class="machine">
+            <div class="item animate-fade" ng-repeat="item in M.MACHINE" ng-if="deviceData.machine === $index">
+                <img ng-src="images/{{item.image}}" title="{{item.name}}"/>
+            </div>
+            <div class="item animate-fade" ng-if="!deviceData.progress.machine && ui.running">
+                <img src="images/blackBox.jpg" title="Black box"/>
+            </div>
+        </div>
+
+        <div class="os">
+            <div class="item animate-fade" ng-repeat="item in M.OS" ng-if="deviceData.os === $index">
+                <img ng-src="images/{{item.image}}" title="{{item.name}}"/>
+            </div>
+        </div>
+
+        <div class="browser">
+            <div class="item animate-fade" ng-repeat="item in M.BROWSER" ng-if="deviceData.browser[0] === $index">
+                <img ng-src="images/{{item.image}}" title="{{item.name}}"/>
+            </div>
         </div>
     </div>
 
-    <div class="os">
-        <div class="item animate-fade" ng-repeat="item in M.OS" ng-if="deviceData.os === $index">
-            <img ng-src="images/{{item.image}}" title="{{item.name}}"/>
-        </div>
-    </div>
+    <div class="detailed-stage">
+        <ul class="history">
+            <li ng-repeat="item in deviceData.browserHistory" class="animate-fade">{{item}}</li>
+        </ul>
 
-    <div class="browser">
-        <div class="item animate-fade" ng-repeat="item in M.BROWSER" ng-if="deviceData.browser[0] === $index">
-            <img ng-src="images/{{item.image}}" title="{{item.name}}"/>
-        </div>
     </div>
 </div>
-
-<div class="detailed-stage">
-    <ul class="history">
-       <li ng-repeat="item in deviceData.browserHistory" class="animate-fade">{{item}}</li>
-    </ul>
-
-</div>
-
 
 <div class="debug">
     <button class="btn btn-default" ng-click="debug('machine', 'MACHINE')">Machine</button>
+    <br>
     <button class="btn btn-default" ng-click="debug('os', 'OS')">OS</button>
+    <br>
     <button class="btn btn-default" ng-click="debug('browser', 'BROWSER')">Browser</button>
+    <br>
     <button class="btn btn-default" ng-click="debugHistory()">+ History</button>
 </div>
-<a ng-click="ui.showDebug = !ui.showDebug" class="btn-link">Toggle</a>
-<pre ng-if="ui.showDebug">
-    {{deviceData}}
-</pre>

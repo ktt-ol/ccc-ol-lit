@@ -11,7 +11,8 @@
 angular
   .module('litol2014DemoApp', [
     'ngAnimate',
-    'ngRoute'
+    'ngRoute',
+    'debounce'
   ])
   .config(function ($routeProvider) {
     $routeProvider

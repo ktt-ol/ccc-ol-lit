@@ -36,11 +36,16 @@ angular.module('litol2014DemoApp').service('Devicedataservice', function Deviced
 
   window._staticTestData = t2;
 
-  this.getData = function () {
+  /**
+   *
+   * @param {string} ipAddress the ip address of the client
+   * @returns {Promise} with the data
+   */
+  this.getData = function (ipAddress) {
     // use static test data
     return $q.when(window._staticTestData);
 
-    var url = 'your server';
+    var url = 'your server?ip=' + ipAddress;
     return $http.get(url).then(
       function ok(response) {
         return response.data;

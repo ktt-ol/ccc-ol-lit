@@ -62,7 +62,6 @@ public class Client {
             for (String userAgent : userAgents) {
                 ReadableUserAgent agent = parser.parse(userAgent);
 
-                System.out.println(agent.getVersionNumber().toVersionString());
                 machines.add(MachineRepository.getMachine(agent));
                 operatingSystems.add(OperatingSystemRepository.getOperatingSystem(agent));
 
@@ -100,10 +99,8 @@ public class Client {
 
     private int getBrowserVersion(ReadableUserAgent agent) {
         try {
-            System.out.println(agent.getVersionNumber().toVersionString());
             return Integer.parseInt(agent.getVersionNumber().getMajor());
         } catch (NumberFormatException e) {
-            System.out.println(agent.getVersionNumber().getMajor());
             return 0;
         }
     }

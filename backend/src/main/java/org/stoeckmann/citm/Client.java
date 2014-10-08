@@ -10,8 +10,6 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -36,15 +34,6 @@ import org.stoeckmann.citm.domain.format.Spec;
  */
 @Path("client")
 public class Client {
-    private static EntityManagerFactory factory;
-
-    private synchronized EntityManagerFactory getFactory() {
-        if (factory == null) {
-            factory = Persistence.createEntityManagerFactory("example");
-        }
-        return factory;
-    }
-
     /**
      * Method handling HTTP GET requests. The returned object will be sent to
      * the client as "text/plain" media type.
@@ -56,7 +45,7 @@ public class Client {
     @Produces(MediaType.APPLICATION_JSON)
     public Spec getIt(@QueryParam("ip") String ip) throws IOException {
         try {
-            EntityManager em = getFactory().createEntityManager();
+            EntityManager em = Main.getFactory().createEntityManager();
 
             final List<Web> webResult = em.createQuery("from Web as web where web.source.ip = '" + ip + "'", Web.class).getResultList();
             final Collection<String> urls = webResult.stream().filter(web -> isInterestingHost(web.getHost())).map(web -> web.getHost())

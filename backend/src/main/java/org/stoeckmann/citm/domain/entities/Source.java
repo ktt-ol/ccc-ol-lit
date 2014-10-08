@@ -1,4 +1,4 @@
-package org.stoeckmann.citm.entities;
+package org.stoeckmann.citm.domain.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

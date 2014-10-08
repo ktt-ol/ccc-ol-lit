@@ -1,4 +1,4 @@
-package org.stoeckmann.citm.format;
+package org.stoeckmann.citm.domain.format;
 
 import java.util.Collection;
 import java.util.Map;

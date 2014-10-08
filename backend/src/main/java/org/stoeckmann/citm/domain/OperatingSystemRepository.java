@@ -1,9 +1,9 @@
-package org.stoeckmann.citm;
+package org.stoeckmann.citm.domain;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.stoeckmann.citm.format.OperatingSystem;
+import org.stoeckmann.citm.domain.format.OperatingSystem;
 
 import net.sf.uadetector.ReadableUserAgent;
 

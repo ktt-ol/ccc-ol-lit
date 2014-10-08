@@ -22,11 +22,14 @@ import net.sf.uadetector.ReadableUserAgent;
 import net.sf.uadetector.UserAgentStringParser;
 import net.sf.uadetector.service.UADetectorServiceFactory;
 
-import org.stoeckmann.citm.entities.Web;
-import org.stoeckmann.citm.format.Browser;
-import org.stoeckmann.citm.format.Machine;
-import org.stoeckmann.citm.format.OperatingSystem;
-import org.stoeckmann.citm.format.Spec;
+import org.stoeckmann.citm.domain.BrowserRepository;
+import org.stoeckmann.citm.domain.MachineRepository;
+import org.stoeckmann.citm.domain.OperatingSystemRepository;
+import org.stoeckmann.citm.domain.entities.Web;
+import org.stoeckmann.citm.domain.format.Browser;
+import org.stoeckmann.citm.domain.format.Machine;
+import org.stoeckmann.citm.domain.format.OperatingSystem;
+import org.stoeckmann.citm.domain.format.Spec;
 
 /**
  * Client resource (exposed at "client" path)

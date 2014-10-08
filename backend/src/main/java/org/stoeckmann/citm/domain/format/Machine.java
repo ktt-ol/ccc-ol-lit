@@ -2,11 +2,11 @@ package org.stoeckmann.citm.domain.format;
 
 /*
  0: unknown
- 1: iphone
- 2: android
- 3: Laptop
+ 1: Laptop
+ 2: iphone
+ 3: android
  4: MacBook
  */
 public enum Machine {
-    unknown, iphone, android, laptop, macbook
+    unknown, laptop, iphone, android, macbook
 }

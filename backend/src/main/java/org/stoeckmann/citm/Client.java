@@ -45,22 +45,26 @@ public class Client {
     @Produces(MediaType.APPLICATION_JSON)
     public Spec getIt(@QueryParam("ip") String ip) throws IOException {
         try {
-            EntityManager em = Main.getFactory().createEntityManager();
+            final EntityManager em = Main.getFactory().createEntityManager();
 
             final List<Web> webResult = em.createQuery("from Web as web where web.source.ip = '" + ip + "'", Web.class).getResultList();
-            final Collection<String> urls = webResult.stream().filter(web -> isInterestingHost(web.getHost())).map(web -> web.getHost())
+            final Collection<String> urls = webResult.stream()
+                    .filter(web -> isInterestingHost(web.getHost()))
+                    .map(web -> web.getHost())
                     .collect(Collectors.toSet());
-            final Set<String> userAgents = webResult.stream().map(web -> web.getAgent()).collect(Collectors.toSet());
+            final Set<String> userAgents = webResult.stream()
+                    .map(web -> web.getAgent())
+                    .collect(Collectors.toSet());
 
             UserAgentStringParser parser = UADetectorServiceFactory.getResourceModuleParser();
 
-            TreeSet<Machine> machines = new TreeSet<>();
-            TreeSet<OperatingSystem> operatingSystems = new TreeSet<>();
-            TreeSet<Browser> browsers = new TreeSet<>();
+            final TreeSet<Machine> machines = new TreeSet<>();
+            final TreeSet<OperatingSystem> operatingSystems = new TreeSet<>();
+            final TreeSet<Browser> browsers = new TreeSet<>();
             int browserVersion = 0;
 
-            for (String userAgent : userAgents) {
-                ReadableUserAgent agent = parser.parse(userAgent);
+            for (final String userAgent : userAgents) {
+                final ReadableUserAgent agent = parser.parse(userAgent);
 
                 machines.add(MachineRepository.getMachine(agent));
                 operatingSystems.add(OperatingSystemRepository.getOperatingSystem(agent));

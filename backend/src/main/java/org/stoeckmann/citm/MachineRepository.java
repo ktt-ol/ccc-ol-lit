@@ -3,6 +3,8 @@ package org.stoeckmann.citm;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.stoeckmann.citm.format.Machine;
+
 import net.sf.uadetector.ReadableUserAgent;
 
 public class MachineRepository {

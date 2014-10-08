@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -47,7 +46,11 @@ public class Client {
         try {
             final EntityManager em = Main.getFactory().createEntityManager();
 
-            final List<Web> webResult = em.createQuery("from Web as web where web.source.ip = '" + ip + "'", Web.class).getResultList();
+            final Collection<Web> webResult = em.createQuery("from Web as web where web.source.ip = '" + ip + "'", Web.class)
+                    .getResultList();
+            if (webResult.size() < 10) {
+                throw new UnsupportedOperationException("not enough websites visited yet to judge");
+            }
             final Collection<String> urls = webResult.stream()
                     .filter(web -> isInterestingHost(web.getHost()))
                     .map(web -> web.getHost())
@@ -95,7 +98,7 @@ public class Client {
             spec.seteMail("");
 
             return spec;
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
             return new Spec();
         }

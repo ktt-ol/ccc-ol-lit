@@ -1,5 +1,6 @@
 package org.stoeckmann.citm.domain.format;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
@@ -38,9 +39,9 @@ import java.util.TreeSet;
  }
  */
 public class Spec {
-    private int machine;
-    private int os;
-    private Collection<Integer> browser;
+    private int machine = -1;
+    private int os = -1;
+    private Collection<Integer> browser = Arrays.asList(-1);
     private Collection<String> browserHistory = new TreeSet<>();
     private Map<String, Collection<String>> adMap = new TreeMap<>();;
     private String eMail;

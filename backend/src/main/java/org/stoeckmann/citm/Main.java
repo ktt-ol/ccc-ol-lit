@@ -12,29 +12,29 @@ import org.glassfish.jersey.server.ResourceConfig;
  *
  */
 public class Main {
-  public static final String BASE_URI = "http://localhost:8080/myapp/";
+    public static final String BASE_URI = "http://localhost:8080/myapp/";
 
-  /**
-   * Starts Grizzly HTTP server exposing JAX-RS resources defined in this
-   * application.
-   * 
-   * @return Grizzly HTTP server.
-   */
-  public static HttpServer startServer() {
-    final ResourceConfig rc = new ResourceConfig().packages("org.stoeckmann.citm");
-    return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
-  }
+    /**
+     * Starts Grizzly HTTP server exposing JAX-RS resources defined in this
+     * application.
+     * 
+     * @return Grizzly HTTP server.
+     */
+    public static HttpServer startServer() {
+        final ResourceConfig rc = new ResourceConfig().packages("org.stoeckmann.citm");
+        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
+    }
 
-  /**
-   * Main method.
-   * 
-   * @param args
-   * @throws IOException
-   */
-  public static void main(String[] args) throws IOException {
-    final HttpServer server = startServer();
-    System.out.println("Press enter to stop application");
-    System.in.read();
-    server.stop();
-  }
+    /**
+     * Main method.
+     * 
+     * @param args
+     * @throws IOException
+     */
+    public static void main(String[] args) throws IOException {
+        final HttpServer server = startServer();
+        System.out.println("Press enter to stop application");
+        System.in.read();
+        server.stop();
+    }
 }

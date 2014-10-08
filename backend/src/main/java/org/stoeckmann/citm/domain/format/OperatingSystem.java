@@ -9,5 +9,5 @@ package org.stoeckmann.citm.domain.format;
  5: android
  */
 public enum OperatingSystem {
-  unknown, windows, linux, ios, macos, android
+    unknown, windows, linux, ios, macos, android
 }

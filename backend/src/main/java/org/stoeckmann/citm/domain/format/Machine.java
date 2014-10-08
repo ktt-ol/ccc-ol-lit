@@ -8,5 +8,5 @@ package org.stoeckmann.citm.domain.format;
  4: MacBook
  */
 public enum Machine {
-  unknown, iphone, android, laptop, macbook
+    unknown, iphone, android, laptop, macbook
 }

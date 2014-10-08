@@ -17,17 +17,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "sources")
 public class Source {
-  @Id
-  private Integer id;
+    @Id
+    private Integer id;
 
-  private String ip;
-  private String name;
+    private String ip;
+    private String name;
 
-  public String getIp() {
-    return ip;
-  }
+    public String getIp() {
+        return ip;
+    }
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 }

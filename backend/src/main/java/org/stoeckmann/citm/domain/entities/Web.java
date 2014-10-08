@@ -37,35 +37,35 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "webs")
 public class Web {
-  @Id
-  private int id;
+    @Id
+    private int id;
 
-  @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "source_id")
-  private Source source;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "source_id")
+    private Source source;
 
-  private String url;
-  private String method;
-  private String agent;
-  private String host;
+    private String url;
+    private String method;
+    private String agent;
+    private String host;
 
-  public Source getSource() {
-    return source;
-  }
+    public Source getSource() {
+        return source;
+    }
 
-  public String getURL() {
-    return url;
-  }
+    public String getURL() {
+        return url;
+    }
 
-  public String getMethod() {
-    return method;
-  }
+    public String getMethod() {
+        return method;
+    }
 
-  public String getAgent() {
-    return agent;
-  }
+    public String getAgent() {
+        return agent;
+    }
 
-  public String getHost() {
-    return host;
-  }
+    public String getHost() {
+        return host;
+    }
 }

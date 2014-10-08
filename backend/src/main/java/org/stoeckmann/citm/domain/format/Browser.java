@@ -8,5 +8,5 @@ package org.stoeckmann.citm.domain.format;
  4: Safari
  */
 public enum Browser {
-  unknown, firefox, chrome, internetexplorer, safari
+    unknown, firefox, chrome, internetexplorer, safari
 }

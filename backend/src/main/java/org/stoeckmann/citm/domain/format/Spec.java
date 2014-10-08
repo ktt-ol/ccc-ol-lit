@@ -38,58 +38,58 @@ import java.util.TreeSet;
  }
  */
 public class Spec {
-  private int machine;
-  private int os;
-  private Collection<Integer> browser;
-  private Collection<String> browserHistory = new TreeSet<>();
-  private Map<String, Collection<String>> adMap = new TreeMap<>();;
-  private String eMail;
+    private int machine;
+    private int os;
+    private Collection<Integer> browser;
+    private Collection<String> browserHistory = new TreeSet<>();
+    private Map<String, Collection<String>> adMap = new TreeMap<>();;
+    private String eMail;
 
-  public int getMachine() {
-    return machine;
-  }
+    public int getMachine() {
+        return machine;
+    }
 
-  public void setMachine(int machine) {
-    this.machine = machine;
-  }
+    public void setMachine(int machine) {
+        this.machine = machine;
+    }
 
-  public int getOs() {
-    return os;
-  }
+    public int getOs() {
+        return os;
+    }
 
-  public void setOs(int os) {
-    this.os = os;
-  }
+    public void setOs(int os) {
+        this.os = os;
+    }
 
-  public Collection<Integer> getBrowser() {
-    return browser;
-  }
+    public Collection<Integer> getBrowser() {
+        return browser;
+    }
 
-  public void setBrowser(Collection<Integer> browser) {
-    this.browser = browser;
-  }
+    public void setBrowser(Collection<Integer> browser) {
+        this.browser = browser;
+    }
 
-  public Collection<String> getBrowserHistory() {
-    return browserHistory;
-  }
+    public Collection<String> getBrowserHistory() {
+        return browserHistory;
+    }
 
-  public void setBrowserHistory(Collection<String> browserHistory) {
-    this.browserHistory = browserHistory;
-  }
+    public void setBrowserHistory(Collection<String> browserHistory) {
+        this.browserHistory = browserHistory;
+    }
 
-  public Map<String, Collection<String>> getAdMap() {
-    return adMap;
-  }
+    public Map<String, Collection<String>> getAdMap() {
+        return adMap;
+    }
 
-  public void setAdMap(Map<String, Collection<String>> adMap) {
-    this.adMap = adMap;
-  }
+    public void setAdMap(Map<String, Collection<String>> adMap) {
+        this.adMap = adMap;
+    }
 
-  public String geteMail() {
-    return eMail;
-  }
+    public String geteMail() {
+        return eMail;
+    }
 
-  public void seteMail(String eMail) {
-    this.eMail = eMail;
-  }
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
+    }
 }

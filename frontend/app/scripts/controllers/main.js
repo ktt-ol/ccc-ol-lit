@@ -13,7 +13,7 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
      CONFIG
      */
 
-    var WAITING = 5000;
+    var WAITING = 500;
 
     /*
      private
@@ -72,7 +72,8 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
         return;
       }
       if (data.browserHistory.length > $scope.deviceData.browserHistory.length) {
-        $scope.deviceData.browserHistory.unshift(data.browserHistory[$scope.deviceData.browserHistory.length]);
+//        $scope.deviceData.browserHistory.unshift(data.browserHistory[$scope.deviceData.browserHistory.length]);
+        $scope.deviceData.browserHistory.push(data.browserHistory[$scope.deviceData.browserHistory.length]);
         $log.debug('update browerHistory (new urls)');
         $scope.deviceData.progress.browserHistory = true;
       }

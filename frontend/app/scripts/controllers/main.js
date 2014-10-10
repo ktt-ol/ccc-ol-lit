@@ -55,7 +55,8 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
         $log.debug('no browser value');
         return;
       }
-      if ($scope.deviceData.progress.os && $scope.deviceData.browser !== data.browser) {
+
+      if ($scope.deviceData.progress.os && !angular.equals($scope.deviceData.browser, data.browser)) {
         $log.debug('setting browser value');
         $scope.deviceData.browser = data.browser;
         $scope.deviceData.progress.browser = true;

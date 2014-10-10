@@ -61,9 +61,9 @@ angular.module('litol2014DemoApp').service('Devicedataservice', function Deviced
   this.MAPPING = {
     MACHINE: [
       new V('unknown', 'unknown.png'),
+      new V('Laptop', 'machine/laptop.png'),
       new V('iPhone', 'machine/iPhone.jpg'),
       new V('Android', 'machine/Samsung_Galaxy_Nexusr.png'),
-      new V('Laptop', 'machine/laptop.png'),
       new V('MacBook', 'machine/Macbook_Pro_Retina_13_2013.jpg')
     ],
     OS: [

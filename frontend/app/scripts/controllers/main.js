@@ -76,6 +76,7 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
         $scope.deviceData.browserHistory.push(data.browserHistory[$scope.deviceData.browserHistory.length]);
         $log.debug('update browerHistory (new urls)');
         $scope.deviceData.progress.browserHistory = true;
+        $scope.$broadcast('scrollNow');
       }
 
     }

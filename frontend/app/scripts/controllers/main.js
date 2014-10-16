@@ -13,7 +13,7 @@ angular.module('litol2014DemoApp').controller('MainCtrl', function ($scope, $log
      CONFIG
      */
 
-    var WAITING = 500;
+    var WAITING = 5000;
 
     /*
      private

@@ -76,10 +76,10 @@ angular.module('litol2014DemoApp').service('Devicedataservice', function Deviced
     ],
     BROWSER: [
       new V('unknown', 'unknown.png'),
-      new V('Firefox', 'browser/firefox.jpg'),
+      new V('Safari', 'browser/safari.jpg'),
       new V('Chrome', 'browser/chrome.png'),
       new V('IE', 'browser/ie.jpg'),
-      new V('Safari', 'browser/safari.jpg')
+      new V('Firefox', 'browser/firefox.jpg')
     ]
 
   };

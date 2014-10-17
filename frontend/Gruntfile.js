@@ -31,7 +31,7 @@ module.exports = function (grunt) {
     watch: {
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        tasks: ['newer:jshint:all', 'replace:dev'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -345,6 +345,46 @@ module.exports = function (grunt) {
       }
     },
 
+    replace: {
+      dev: {
+        options: {
+          patterns: [
+            {
+              match: 'STATUS',
+              replacement: 'dev'
+            }
+          ]
+        },
+        files: [
+          {
+            expand: true,
+            cwd: '<%= yeoman.app %>/scripts',
+            src: [
+              'services/config.js'
+            ],
+            dest: '.tmp/scripts/'
+          }
+        ]
+      },
+      dist: {
+        options: {
+          patterns: [
+            {
+              match: 'STATUS',
+              replacement: 'prod'
+            }
+          ]
+        },
+        // we run after the concat task and do the replacement on all files
+        files: [{
+          expand: true,
+          cwd: '.tmp/concat/scripts',
+          src: '*.js',
+          dest: '.tmp/concat/scripts'
+        }]
+      }
+    },
+
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
@@ -377,6 +417,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'concurrent:server',
+      'replace:dev',
       'autoprefixer',
       'connect:livereload',
       'watch'
@@ -402,6 +443,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
+    'replace:dist',
     'ngAnnotate',
     'copy:dist',
     'cdnify',

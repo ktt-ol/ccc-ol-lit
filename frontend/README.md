@@ -28,3 +28,9 @@ grunt serve
 
 You will get problems because of the cross-origin-policy. To fix this start the google chrome browser with the ```--disable-web-security``` parameter. 
 
+
+# ToDo
+
+* must run on nexus4
+* get ip request, prefill ip field
+* Clear data if ip changes
